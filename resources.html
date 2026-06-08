@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | The Connecticut Health Literacy Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Nunito', 'sans-serif'], storybook: ['Fraunces', 'serif'] }, colors: { sb: { ivory: '#FDFBF7', cornflower: '#7EA8D9', dustyblue: '#8EB1C7', sage: '#7A9E7E', eucalyptus: '#5C8D89', seaglass: '#6BBFA3', aqua: '#C4EAE4', slate: '#3A4B55', charcoal: '#24333B' } } } } }
+    </script>
+</head>
+<body class="bg-sb-ivory text-sb-slate antialiased pt-32 flex flex-col min-h-screen">
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-sb-ivory/90 backdrop-blur-md border-2 border-sb-aqua/50 px-6 py-3 rounded-full shadow-storybook flex items-center gap-8 w-[95%] max-w-4xl justify-between">
+        <a href="index.html" class="font-storybook font-bold text-2xl text-sb-eucalyptus tracking-wide flex items-center gap-2">
+            <div class="w-8 h-8 bg-sb-sage rounded-lg flex items-center justify-center text-white text-sm">CHL</div>
+        </a>
+        <div class="hidden md:flex gap-6 text-base font-bold text-sb-slate">
+            <a href="about.html" class="hover:text-sb-cornflower transition-colors">About Us</a>
+            <a href="resources.html" class="hover:text-sb-sage transition-colors">Resources</a>
+            <a href="contact.html" class="hover:text-sb-cornflower transition-colors">Contact</a>
+        </div>
+        <a href="donate.html" class="bg-sb-cornflower text-white px-6 py-2 rounded-full font-bold hover:bg-sb-eucalyptus transition-colors">Donate</a>
+    </nav>
+
+    <section class="max-w-6xl mx-auto px-6 pb-24 flex-grow">
+        <h1 class="font-storybook text-5xl font-bold text-sb-charcoal mb-12 text-center">The Toolkit Library</h1>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-[2rem] border-2 border-sb-aqua/30 shadow-sm hover:-translate-y-1 transition-transform">
+                <h3 class="font-storybook text-2xl font-bold text-sb-charcoal mb-2">Provider Communication Card</h3>
+                <p class="mb-6 text-sb-slate">A quick-reference visual guide for emergency environments.</p>
+                <a href="provider-card.pdf" target="_blank" class="bg-sb-sage text-white px-6 py-2 rounded-full font-bold hover:bg-sb-eucalyptus inline-block">Download PDF</a>
+            </div>
+
+             <div class="bg-white p-8 rounded-[2rem] border-2 border-sb-aqua/30 shadow-sm hover:-translate-y-1 transition-transform">
+                <h3 class="font-storybook text-2xl font-bold text-sb-charcoal mb-2">Patient Needs Board</h3>
+                <p class="mb-6 text-sb-slate">A point-to-communicate board for pain and basic needs.</p>
+                <a href="patient-board.pdf" target="_blank" class="bg-sb-cornflower text-white px-6 py-2 rounded-full font-bold hover:bg-sb-slate inline-block">Download PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-sb-eucalyptus text-sb-ivory py-12 text-center">
+        <p class="font-medium">&copy; 2026 The Connecticut Health Literacy Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
