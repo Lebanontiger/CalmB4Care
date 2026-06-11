@@ -130,31 +130,65 @@
 </head>
 <body class="antialiased selection:bg-sb-cornflower selection:text-white relative">
 <!-- Floating world elements in the background -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
 <div class="absolute top-[10%] left-[-5%] w-96 h-96 bg-sb-aqua/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-tilt"></div>
 <div class="absolute top-[40%] right-[-10%] w-[30rem] h-[30rem] bg-sb-sage/20 rounded-full mix-blend-multiply filter blur-3xl animate-float delay-1"></div>
 <div class="absolute bottom-[20%] left-[10%] w-80 h-80 bg-sb-cornflower/20 rounded-full mix-blend-multiply filter blur-3xl animate-float delay-2"></div>
 </div>
 <!-- RESTORED NAVIGATION -->
 <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-sb-ivory/80 backdrop-blur-md border-2 border-sb-aqua/50 px-6 py-3 rounded-full shadow-storybook flex items-center gap-8 w-[95%] max-w-3xl justify-between transition-all duration-300 hover:bg-sb-ivory">
-<a class="flex items-center gap-3 group" href="index.html">
-<!-- Original B4 Sparkle Logo -->
-<svg class="group-hover:rotate-6 transition-transform duration-300" fill="none" height="36" viewbox="0 0 40 40" width="36">
-<rect fill="#7A9E7E" fill-opacity="0.15" height="40" rx="14" width="40"></rect>
-<path d="M14 12C14 10.8954 14.8954 10 16 10H22C25.3137 10 28 12.6863 28 16C28 18.0694 26.9515 19.8942 25.3409 20.9419C27.5358 21.8491 29 24.0326 29 26.5C29 30.0899 26.0899 33 22.5 33H16C14.8954 33 14 32.1046 14 31V12Z" fill="#5C8D89"></path>
-<path d="M28 8 L29 11 L32 12 L29 13 L28 16 L27 13 L24 12 L27 11 Z" fill="#7EA8D9"></path>
-</svg>
-<span class="font-storybook font-bold text-2xl text-sb-eucalyptus tracking-wide">B4</span>
-</a>
-<div class="hidden md:flex gap-6 text-base font-bold text-sb-slate">
-<a class="hover:text-sb-cornflower transition-colors" href="about.html">About</a>
-<a class="hover:text-sb-sage transition-colors" href="resources.html">Resources</a>
-<a class="hover:text-sb-cornflower transition-colors" href="contact.html">Contact</a>
-</div>
-<a class="bg-sb-cornflower text-white px-6 py-2.5 rounded-full text-base font-bold hover:bg-sb-eucalyptus transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200" href="donate.html">
-            Donate
-        </a>
+  <a class="flex items-center gap-3 group" href="index.html">
+    <svg class="group-hover:rotate-6 transition-transform duration-300" fill="none" height="36" viewBox="0 0 40 40" width="36">
+      <rect fill="#7A9E7E" fill-opacity="0.15" height="40" rx="14" width="40"></rect>
+      <path d="M14 12C14 10.8954 14.8954 10 16 10H22C25.3137 10 28 12.6863 28 16C28 18.0694 26.9515 19.8942 25.3409 20.9419C27.5358 21.8491 29 24.0326 29 26.5C29 30.0899 26.0899 33 22.5 33H16C14.8954 33 14 32.1046 14 31V12Z" fill="#5C8D89"></path>
+      <path d="M28 8 L29 11 L32 12 L29 13 L28 16 L27 13 L24 12 L27 11 Z" fill="#7EA8D9"></path>
+    </svg>
+    <span class="font-storybook font-bold text-2xl text-sb-eucalyptus tracking-wide">B4</span>
+  </a>
+
+  <!-- Desktop links (unchanged) -->
+  <div class="hidden md:flex gap-6 text-base font-bold text-sb-slate">
+    <a class="hover:text-sb-cornflower transition-colors" href="about.html">About</a>
+    <a class="hover:text-sb-sage transition-colors" href="resources.html">Resources</a>
+    <a class="hover:text-sb-cornflower transition-colors" href="contact.html">Contact</a>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <a class="bg-sb-cornflower text-white px-6 py-2.5 rounded-full text-base font-bold hover:bg-sb-eucalyptus transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-200" href="donate.html">
+      Donate
+    </a>
+    <!-- Hamburger button — mobile only -->
+    <button
+      id="nav-toggle"
+      class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-full hover:bg-sb-aqua/20 transition-colors"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="hamburger-bar block w-5 h-0.5 bg-sb-slate rounded-full transition-all duration-300"></span>
+      <span class="hamburger-bar block w-5 h-0.5 bg-sb-slate rounded-full transition-all duration-300 my-1"></span>
+      <span class="hamburger-bar block w-5 h-0.5 bg-sb-slate rounded-full transition-all duration-300"></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile dropdown — sits just below the nav pill -->
+<div
+  id="mobile-menu"
+  class="fixed top-[5.5rem] left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-sm bg-sb-ivory/95 backdrop-blur-md border-2 border-sb-aqua/50 rounded-3xl shadow-storybook overflow-hidden
+         transition-all duration-300 ease-in-out
+         opacity-0 -translate-y-2 pointer-events-none"
+  aria-hidden="true"
+>
+  <div class="flex flex-col p-4 gap-1">
+    <a href="about.html"    class="px-5 py-3 rounded-2xl font-bold text-sb-slate hover:bg-sb-aqua/20 hover:text-sb-cornflower transition-colors">About</a>
+    <a href="resources.html" class="px-5 py-3 rounded-2xl font-bold text-sb-slate hover:bg-sb-aqua/20 hover:text-sb-sage transition-colors">Resources</a>
+    <a href="contact.html"  class="px-5 py-3 rounded-2xl font-bold text-sb-slate hover:bg-sb-aqua/20 hover:text-sb-cornflower transition-colors">Contact</a>
+    <div class="border-t border-sb-aqua/30 mt-2 pt-3">
+      <a href="donate.html" class="block text-center bg-sb-cornflower text-white px-6 py-3 rounded-2xl font-bold hover:bg-sb-eucalyptus transition-colors">Donate</a>
+    </div>
+  </div>
+</div>
 <!-- RESTORED HERO SECTION -->
 <section class="relative min-h-[100vh] flex flex-col justify-center pt-32 pb-36 overflow-hidden z-0">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
@@ -183,7 +217,7 @@
 </div>
 <div class="relative h-[550px] w-full flex justify-center items-center">
 <!-- Original Hero Illustration -->
-<svg class="w-full h-full drop-shadow-2xl" fill="none" viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<svg aria-hidden="true" focusable="false" class="w-full h-full drop-shadow-2xl" fill="none" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <radialgradient cx="50%" cy="50%" id="fadeMaskGrad" r="50%">
 <stop offset="75%" stop-color="white" stop-opacity="1"></stop>
@@ -262,7 +296,9 @@
 <div class="story-card bg-white rounded-[2.5rem] p-8 flex flex-col items-center text-center group relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-b from-sb-aqua/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="w-32 h-32 mb-8 relative group-hover:scale-110 transition-transform duration-700">
-<svg class="w-full h-full text-sb-eucalyptus" fill="none" viewbox="0 0 100 100">
+<svg role="img" aria-labelledby="svg-sensory-title svg-sensory-desc" class="w-full h-full text-sb-eucalyptus" fill="none" viewBox="0 0 100 100">
+<title id="svg-sensory-title">Sensory Overload</title>
+<desc id="svg-sensory-desc">A person surrounded by orbiting sensory inputs — an eye, an ear, and a mouth — representing the overwhelming stimuli of a clinical environment.</desc>
 <circle cx="50" cy="50" fill="#C4EAE4" r="45"></circle>
 <!-- Chaotic tangles in background -->
 <path class="animate-pulse-glow" d="M 20 40 Q 50 10 70 40 T 30 60 T 80 50" fill="none" opacity="0.5" stroke="#7EA8D9" stroke-width="1.5"></path>
@@ -292,7 +328,9 @@
 <div class="story-card bg-white rounded-[2.5rem] p-8 flex flex-col items-center text-center group mt-4 md:mt-12 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-b from-sb-cornflower/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="w-32 h-32 mb-8 relative group-hover:scale-110 transition-transform duration-700">
-<svg class="w-full h-full text-sb-cornflower" fill="none" viewbox="0 0 100 100">
+<svg role="img" aria-labelledby="svg-comm-title svg-comm-desc" class="w-full h-full text-sb-cornflower" fill="none" viewBox="0 0 100 100">
+<title id="svg-comm-title">Communication Drop</title>
+<desc id="svg-comm-desc">A person with a thought bubble whose words are dissolving, showing how deep stress can make verbal communication impossible.</desc>
 <circle cx="50" cy="50" fill="#8EB1C7" fill-opacity="0.1" r="45"></circle>
 <!-- Person Figure -->
 <path d="M 35 85 C 35 70 65 70 65 85" fill="#7A9E7E"></path>
@@ -316,7 +354,9 @@
 <div class="story-card bg-white rounded-[2.5rem] p-8 flex flex-col items-center text-center group mt-8 md:mt-24 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-b from-sb-sage/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 <div class="w-32 h-32 mb-8 relative group-hover:scale-110 transition-transform duration-700">
-<svg class="w-full h-full text-sb-sage" fill="none" viewbox="0 0 100 100">
+<svg role="img" aria-labelledby="svg-stress-title svg-stress-desc" class="w-full h-full text-sb-sage" fill="none" viewBox="0 0 100 100">
+<title id="svg-stress-title">Escalating Stress</title>
+<desc id="svg-stress-desc">A pressure gauge with a needle swinging into the red zone, representing rising anxiety when communication breaks down between patient and provider.</desc>
 <circle cx="50" cy="50" fill="#6BBFA3" fill-opacity="0.3" r="45"></circle>
 <g class="animate-float delay-2">
 <!-- Gauge Outline -->
@@ -372,7 +412,7 @@
                     </p>
 </div>
 <div class="hidden md:flex justify-center md:justify-end pr-4">
-<svg aria-hidden="true" class="w-56 h-56 animate-float" fill="none" viewbox="0 0 220 230" xmlns="http://www.w3.org/2000/svg">
+<svg aria-hidden="true" focusable="false" class="w-56 h-56 animate-float" fill="none" viewbox="0 0 220 230" xmlns="http://www.w3.org/2000/svg">
 <!-- === STEMS (deepest green so they read against the sage bg) === -->
 <path d="M98 205 Q84 175 60 132" stroke="#3A6645" stroke-linecap="round" stroke-width="4"></path>
 <path d="M104 205 Q94 166 78 114" stroke="#3A6645" stroke-linecap="round" stroke-width="4"></path>
@@ -631,20 +671,54 @@
 </div>
 </footer>
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const menu   = document.getElementById('mobile-menu');
+    const bars   = toggle ? toggle.querySelectorAll('.hamburger-bar') : [];
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
-        });
-    </script>
+    let open = false;
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        open = !open;
+        toggle.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+
+        if (open) {
+          menu.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+          menu.classList.add('opacity-100', 'translate-y-0');
+          // Animate to X
+          bars[0].style.cssText = 'transform: translateY(6px) rotate(45deg)';
+          bars[1].style.cssText = 'opacity: 0; transform: scaleX(0)';
+          bars[2].style.cssText = 'transform: translateY(-6px) rotate(-45deg)';
+        } else {
+          menu.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+          menu.classList.remove('opacity-100', 'translate-y-0');
+          bars.forEach(b => b.style.cssText = '');
+        }
+      });
+
+      // Close on outside click
+      document.addEventListener('click', e => {
+        if (open && !toggle.contains(e.target) && !menu.contains(e.target)) {
+          toggle.click();
+        }
+      });
+
+      // Close on link click
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        if (open) toggle.click();
+      }));
+    }
+
+    // Scroll reveal
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }).observe(el);
+    });
+  });
+</script>
 </body>
 </html>
